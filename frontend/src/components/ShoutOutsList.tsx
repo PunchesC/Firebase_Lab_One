@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ShoutOuts from "../model/shoutOuts";
-import {readAllShoutOuts} from "../service/ShoutOutsApiService";
+import {createShoutOut, readAllShoutOuts} from "../service/ShoutOutsApiService";
 import ShoutOutCard from './ShoutOutCard';
+import ShoutOutsForm from "./ShoutOutsForm";
 import './ShoutOutsList.css';
 
 
@@ -21,6 +22,11 @@ function ShoutOutsList(){
       setShoutOutsLoaded(true);
     });
   } 
+  function handleAddShoutOuts(shoutout: ShoutOuts): void{
+    createShoutOut(shoutout).then(loadShoutOuts)
+  }
+
+
   return (
     <div className="ShoutOutsList">
       <h2>All Shout Outs</h2>
@@ -33,6 +39,7 @@ function ShoutOutsList(){
      <ShoutOutCard key={eachShoutOut._id} shoutouts={eachShoutOut}/>
       )
     }
+    <ShoutOutsForm onSubmit={handleAddShoutOuts}/>
     </div>
   )
 
