@@ -1,6 +1,6 @@
 
 import './App.css';
-import ShoutOutsList from './components/ShoutOutsList'
+import ShoutOutsList from './components/ShoutOutsList';
 
 
 function App() {
