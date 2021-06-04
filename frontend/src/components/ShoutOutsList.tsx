@@ -29,10 +29,6 @@ function ShoutOutsList(){
     createShoutOut(shoutout).then(loadShoutOuts)
   }
 
-  let addClass = "";
-  if (user){
-    addClass =" noDisplay"
-  }
 
   return (
     <div className="ShoutOutsList">
