@@ -1,0 +1,23 @@
+.Header{
+  display: flex;
+  flex-direction:column-reverse;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding:25px;
+  
+}
+
+.Header button{
+  height:50%;
+}
+
+.ShoutOutList_sign_in{
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.noDisplay{
+  display: none;
+}

@@ -1,8 +1,15 @@
 .ShoutOutCard{
  border:#aaa 2px solid;
  background-color: white ;
- width:50%;
+
  margin:10px;
  border-radius: 15px;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+  width:80%;
+ align-items: center;
+ 
 
 }
+

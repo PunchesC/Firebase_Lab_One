@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/auth-context";
+import { signInWithGoogle } from "../firebaseConfig";
 import ShoutOuts from "../model/shoutOuts";
 import {createShoutOut, readAllShoutOuts} from "../service/ShoutOutsApiService";
 import ShoutOutCard from './ShoutOutCard';
@@ -10,6 +12,7 @@ function ShoutOutsList(){
   // array of students from the API
   const [ shoutOuts, setShoutOuts ] = useState<ShoutOuts[]>([]);
   const [ shoutOutsLoaded, setShoutOutsLoaded ] = useState(false);
+  const {user} = useContext(AuthContext);
 
   // useEffect runs once when our componet loads.
   useEffect(() => {
@@ -26,20 +29,32 @@ function ShoutOutsList(){
     createShoutOut(shoutout).then(loadShoutOuts)
   }
 
+  let addClass = "";
+  if (user){
+    addClass =" noDisplay"
+  }
 
   return (
     <div className="ShoutOutsList">
-      <h2>All Shout Outs</h2>
+    <div className="ShoutOutsList_form">
+      <h2>Let'em Know!!</h2>
+      {!user ? ( <button  className="ShoutOutList_sign_in"onClick={signInWithGoogle}>Sign in with Google</button>
+    ) : (
+    <ShoutOutsForm onSubmit={handleAddShoutOuts}/>
+    )}
+    </div>
+    <div className="ShoutOutsList_list_cards">
       { !shoutOutsLoaded ? 
       <p className="ShoutOutsList_message">Loading...</p>  
       : shoutOuts.length === 0 ?
       <p className="ShoutOutsList_message">No ShoutOuts</p>
       :
-     shoutOuts.map(eachShoutOut => 
+     shoutOuts.slice(0).reverse().map(eachShoutOut => 
+     
      <ShoutOutCard key={eachShoutOut._id} shoutouts={eachShoutOut}/>
       )
     }
-    <ShoutOutsForm onSubmit={handleAddShoutOuts}/>
+  </div>
     </div>
   )
 
