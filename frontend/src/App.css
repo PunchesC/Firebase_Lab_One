@@ -1,3 +1,13 @@
 .App{
   Background: #eee
 }
+
+.App__nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.App__nav li {
+  margin-right: 1em;
+}

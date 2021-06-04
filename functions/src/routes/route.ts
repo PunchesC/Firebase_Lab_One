@@ -16,9 +16,14 @@ app.use(express.json());
 
 
 app.get("/", async (req, res) => {
+  const to = req.query.to;
+  const mongoQuery:any = {};
+  if(to){
+    mongoQuery.to=to;
+  }
   try {
     const client = await getClient();
-    const results = await client.db().collection<ShoutOuts>('shoutOuts').find().toArray();
+    const results = await client.db().collection<ShoutOuts>('shoutOuts').find(mongoQuery).toArray();
     res.json(results); // send JSON results
   } catch (err) {
     console.error("FAIL", err);
