@@ -14,7 +14,7 @@ import "firebase/auth";
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+
 
   export function signInWithGoogle(): void {
     firebase.auth().signInWithPopup(authProvider);
