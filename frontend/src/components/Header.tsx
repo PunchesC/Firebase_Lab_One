@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import {AuthContext} from "../context/auth-context";
-import { signInWithGoogle, signOut } from "../firebaseConfig";
+import { signOut } from "../firebaseConfig";
 import './Header.css'
 
 
@@ -8,10 +8,7 @@ function Header() {
   const {user} = useContext(AuthContext);
 
   
-  let addClass = "";
-  if (user){
-    addClass =" noDisplay"
-  }
+
 
   let addSignOutClass ="";
   if(!user){
