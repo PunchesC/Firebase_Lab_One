@@ -34,7 +34,7 @@ function handleSubmit(event:FormEvent): void {
       <label htmlFor="ShoutOutsForm_from">From</label>
       <input id="ShoutOutsForm_from" type="text" value={from} onChange={e => setFrom(e.target.value)} required/>
       <label htmlFor="ShoutOutsForm_message">Shout It Out!!!</label>
-      <input id="ShoutOutsForm_message" type="text" value={message} onChange={e => setMessage(e.target.value)} required/>
+      <textarea id="ShoutOutsForm_message" value={message} onChange={e => setMessage(e.target.value)} required/>
     <button type="submit">Let'em know!!!</button>  
     </form>
   )
