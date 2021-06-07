@@ -14,15 +14,16 @@ interface Props {
 function ShoutOutsForm({onSubmit}:Props){
   const {user} = useContext(AuthContext);
 const [to, setTo]= useState("");
-const from =user;
+const [from, setFrom] = useState("")
 const [message, setMessage]= useState("")
+
 
 
 function handleSubmit(event:FormEvent): void {
   event.preventDefault();
   const shoutout: ShoutOuts = {
     to: to,
-    from: user,
+    from: from,
     message: message
   }
   onSubmit(shoutout);
