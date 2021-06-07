@@ -15,6 +15,11 @@ return (
     <h3>Shout out to {shoutouts.to}</h3>
     <p>-from {shoutouts.from}</p>
     </div>
+    <div>
+      {!!shoutouts.image && <p>
+        <img className="ShoutOutCard_photo" src={shoutouts.image} />
+        </p>}
+    </div>
     <div className="ShoutOutCard_message">
       {shoutouts.message}
     </div>
