@@ -20,10 +20,7 @@ function ShoutOutsForTo(){
   const {user} = useContext(AuthContext);
 
   // useEffect runs once when our componet loads.
-  useEffect(() => {
-    // load our initial data here.
-    // loadShoutOuts();
-  }, [to]);
+  useEffect(loadShoutOuts, [to]);
   function loadShoutOuts() {
     readShoutOutsForTo(to).then(shoutOutsFromApi => {
       setShoutOuts(shoutOutsFromApi);
