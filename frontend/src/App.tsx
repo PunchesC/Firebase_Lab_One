@@ -13,11 +13,11 @@ function App() {
       <Header />
       <nav className="App_nav">
         <ul>
-          <li><NavLink to="/to/David">David</NavLink></li>
+          <li><NavLink to="/name/Curtis">Curtis</NavLink></li>
         </ul>
       </nav>
       <Switch>
-        <Route path="/to/:to">
+        <Route path="/name/:to">
          <ShoutOutsForTo />
         </Route>
         <Route path="/">

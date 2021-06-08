@@ -22,7 +22,7 @@ function ShoutOutsForTo(){
   // useEffect runs once when our componet loads.
   useEffect(() => {
     // load our initial data here.
-    loadShoutOuts();
+    // loadShoutOuts();
   }, [to]);
   function loadShoutOuts() {
     readShoutOutsForTo(to).then(shoutOutsFromApi => {
