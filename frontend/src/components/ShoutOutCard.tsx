@@ -18,7 +18,7 @@ return (
     </div>
     <div>
       {!!shoutouts.image && <p>
-        <img className="ShoutOutCard_photo" src={shoutouts.image} alt="user desired picture" />
+        <img className="ShoutOutCard_photo" src={shoutouts.image} alt="" />
         </p>}
     </div>
     <div className="ShoutOutCard_message">
