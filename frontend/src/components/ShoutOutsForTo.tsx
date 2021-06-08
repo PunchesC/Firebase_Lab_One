@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { AuthContext } from "../context/auth-context";
 import { signInWithGoogle } from "../firebaseConfig";
 import ShoutOuts from "../model/shoutOuts";
-import {createShoutOut, readShoutOutsForTo} from "../service/ShoutOutsApiService";
+import {createShoutOut, deleteShoutOut, readShoutOutsForTo} from "../service/ShoutOutsApiService";
 import ShoutOutCard from './ShoutOutCard';
 import ShoutOutsForm from "./ShoutOutsForm";
 import './ShoutOutsList.css';
@@ -34,6 +34,10 @@ function ShoutOutsForTo(){
     createShoutOut(shoutout).then(loadShoutOuts)
   }
 
+  function handleDeleteShoutOuts(shoutOutId: string): void{
+    deleteShoutOut(shoutOutId).then(loadShoutOuts)
+  }
+
 
   return (
     <div className="ShoutOutsList">
@@ -52,7 +56,7 @@ function ShoutOutsForTo(){
       :
      shoutOuts.slice(0).reverse().map(eachShoutOut => 
      
-     <ShoutOutCard key={eachShoutOut._id} shoutouts={eachShoutOut}/>
+     <ShoutOutCard key={eachShoutOut._id} shoutouts={eachShoutOut} onDelete={()=>handleDeleteShoutOuts(eachShoutOut._id!)}/>
       )
     }
   </div>

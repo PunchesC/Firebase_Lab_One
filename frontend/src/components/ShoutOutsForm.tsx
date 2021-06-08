@@ -75,7 +75,7 @@ function clearForm() {
       <label htmlFor="ShoutOutsForm_message">Shout It Out!!!</label>
       <textarea id="ShoutOutsForm_message" value={message} onChange={e => setMessage(e.target.value)} rows={7} required/>
     <label htmlFor="ShoutOutsForm_images">Images</label>
-    <input id="ShoutOutsForm_images" type="file" ref={photoInputRef}></input>
+    <input id="ShoutOutsForm_images" type="file" title= " " ref={photoInputRef}></input>
     <button type="submit">Let'em know!!!</button>  
     </form>
   )

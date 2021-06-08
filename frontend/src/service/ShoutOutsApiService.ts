@@ -16,8 +16,13 @@ export function createShoutOut(shoutout: ShoutOuts):Promise<ShoutOuts>{
   return axios.post(baseUrl, shoutout).then(res => res.data)
 }
 
+export function deleteShoutOut(shoutOutId: string):Promise<void>{
+  return axios.delete(`${baseUrl}/${encodeURIComponent(shoutOutId)}`)
+}
+
 export function readShoutOutsForTo(to: string):Promise<ShoutOuts[]> {
   return axios.get(baseUrl, {
     params: { to: to }
   }).then(res => res.data);
 }
+
