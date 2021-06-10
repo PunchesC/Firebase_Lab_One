@@ -4,7 +4,7 @@ import cors from "cors";
 import ShoutOuts from '../model/shoutOuts'
 
 import { getClient } from '../db';
-import { ObjectId } from "mongodb";
+import {  ObjectId } from "mongodb";
 
 
 const app = express();
@@ -16,15 +16,38 @@ app.use(express.json());
 // });
 
 
-app.get("/", async (req, res) => {
+// app.get("/", async (req, res) => {
+//   const to = req.query.to
+
+//   const mongoQuery:any = {};
+//   if(to){
+//     mongoQuery.to=to;
+//   }
+
+//   try {
+//     const client = await getClient();
+//     const results = await client.db().collection<ShoutOuts>('shoutOuts').find(mongoQuery).toArray();
+//     res.json(results); // send JSON results
+//   } catch (err) {
+//     console.error("FAIL", err);
+//     res.status(500).json({message: "Internal Server Error"});
+//   }
+// });
+
+app.get("/", async (req, res) =>{
   const to = req.query.to;
-  const mongoQuery:any = {};
-  if(to){
-    mongoQuery.to=to;
+  const from = req.query.from;
+  // const name = req.query.name;
+  const query: any = {};
+  if (to || from) {
+    query.to=to;
+    query.from=from;
   }
-  try {
+
+
+  try{
     const client = await getClient();
-    const results = await client.db().collection<ShoutOuts>('shoutOuts').find(mongoQuery).toArray();
+    const results = await client.db().collection<ShoutOuts>('shoutOuts').find(query).toArray();
     res.json(results); // send JSON results
   } catch (err) {
     console.error("FAIL", err);
