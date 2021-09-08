@@ -1,0 +1,29 @@
+<App>
+
+
+
+
+<ColorChange />
+
+
+
+
+
+</App>
+
+function ColorChange(){
+  const [ name, setName] = useState("red")
+
+function switchColor(){
+  let addBlue= "";
+  addBlue= "  blue";
+  setName(blue);
+}
+
+  return (
+    <div className="ColorChange">
+    {name}
+    <button onClick={switchColor} className={addBlue}>Switch Color </button>
+    </div>
+  )
+}
